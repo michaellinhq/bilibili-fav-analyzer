@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>B站收藏夹分析</title>
+    <meta name="description" content="B站收藏夹数据分析工具">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --primary-color: #00a1d6;
@@ -92,37 +94,40 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" role="main" aria-label="主要内容">
         <h1>B站收藏夹分析工具</h1>
         
         <div class="input-section">
             <div class="form-group">
-                <label for="fav-url">收藏夹链接：</label>
-                <input type="text" id="fav-url" 
+                <label for="fav-url" aria-label="收藏夹链接输入框">收藏夹链接：</label>
+                <input type="text" 
+                       id="fav-url" 
+                       name="fav-url"
+                       aria-label="收藏夹链接输入框"
                        value="https://space.bilibili.com/56671097/favlist?fid=99042297"
                        required>
-                <button onclick="analyzeFavorites()">开始分析</button>
+                <button onclick="analyzeFavorites()" aria-label="开始分析按钮">开始分析</button>
             </div>
         </div>
 
-        <div id="loading" class="hidden">
+        <div id="loading" class="hidden" role="alert" aria-live="polite">
             <p>正在分析中，请稍候...</p>
         </div>
 
-        <div id="result" class="hidden">
+        <div id="result" class="hidden" role="region" aria-label="分析结果">
             <div class="stats-section">
                 <h2>基础统计</h2>
-                <div id="basic-stats"></div>
+                <div id="basic-stats" aria-live="polite"></div>
             </div>
 
             <div class="charts-section">
                 <h2>数据可视化</h2>
-                <div id="charts"></div>
+                <div id="charts" aria-label="播放量统计图表"></div>
             </div>
 
             <div class="mindmap-section">
                 <h2>思维导图</h2>
-                <div id="mindmap"></div>
+                <div id="mindmap" aria-label="视频关系思维导图"></div>
             </div>
         </div>
     </div>
